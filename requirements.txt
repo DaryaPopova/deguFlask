@@ -7,3 +7,4 @@ tqdm==4.65.0
 Werkzeug==2.2.3
 requests==2.28.2
 pytest==7.3.1
+assertpy~=1.1

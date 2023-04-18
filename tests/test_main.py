@@ -1,19 +1,20 @@
-import pytest
+from configuration import SERVER_HOST
+from configuration import SERVER_PORT
 import requests
-
-import config
-from tests.conftest import BaseTest
+from assertpy import assert_that
 
 
-class TestMain(BaseTest):
-    def test_1(self, set_up, some):
-        print('test one')
-        url = config.SERVER_HOST + ":" + str(config.SERVER_PORT)
+def test_1(set_up, some):
+    print('test one')
+    url = f"{SERVER_HOST}:{SERVER_PORT}/"
 
-        with requests.get(url) as r:
-            print(r.text)
+    with requests.get(url) as r:
+        assert_that(r.status_code).is_equal_to(200)
 
-        self.assertEquals(r.status_code, 200)
 
-    def test_2(self, set_up, some):
-        print('test two')
+def test_2(set_up, some):
+    print('test two')
+    url = f"{SERVER_HOST}:{SERVER_PORT}/user/1"
+
+    with requests.get(url) as r:
+        assert_that(r.status_code).is_equal_to(200)
