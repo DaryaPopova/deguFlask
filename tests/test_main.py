@@ -1,3 +1,7 @@
+import os
+
+from flake8.api import legacy as flake8
+
 from configuration import SERVER_HOST
 from configuration import SERVER_PORT
 import requests

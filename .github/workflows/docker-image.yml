@@ -12,5 +12,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
+    - name: Run tests
       run: docker-compose up --build --exit-code-from test
